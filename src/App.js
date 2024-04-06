@@ -5,14 +5,14 @@ class Subject extends Component {
   render() {
     return (
       <header>
-        <h1>WEB</h1>
-        world wide web!
+        <h1>{this.props.title}</h1>
+        {this.props.sub}
       </header>
     );
   }
 }
 
-class Nav extends Component {
+class TOC extends Component {
   render() {
     return (
       <nav>
@@ -26,12 +26,12 @@ class Nav extends Component {
   }
 }
 
-class Article extends Component {
+class Content extends Component {
   render() {
     return (
       <article>
-        <h2>HTML</h2>
-        HTML is HyperText Markup Language.
+        <h2>{this.props.title}</h2>
+        {this.props.desc}
       </article>
     );
   }
@@ -42,9 +42,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Subject></Subject>
-        <Nav></Nav>
-        <Article></Article>
+        <Subject title="WEB" sub="world wide web!!"></Subject>
+        <TOC></TOC>
+        <Content title="HTML" desc="HTML is HyperText Markup Language."></Content>
       </div>
     );
   }

@@ -32,7 +32,7 @@ class App extends Component {
       _title = this.state.contents[0].title;
       _desc = this.state.contents[0].desc;
     }
-
+    console.log('render', this);
 
     return (
       <div className="App">
@@ -42,6 +42,7 @@ class App extends Component {
         {/*></Subject>*/}
         <header>
           <h1><a href="/" onClick={function(e){
+            console.log('event in',this);
             e.preventDefault(); // a태그의 기본적인 동작방법을 중지 시킴
             // this.state.mode = 'welcome';
             this.setState({

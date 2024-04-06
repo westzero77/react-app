@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mode:'read',
+      mode:'welcome',
       subject:{title:'WEB', subTitle:'world wide web!'},
       welcome:{title:'Welcome', desc:'Hello, React!!'},
       contents:[
@@ -36,12 +36,18 @@ class App extends Component {
           onChangePage={
           function(){
             this.setState({
-              mode: 'welcome',
+              mode: 'welcome'
             })
           }.bind(this)
         }
         ></Subject>
-        <TOC data={this.state.contents}></TOC>
+        <TOC data={this.state.contents}
+             onChangePage={function () {
+               this.setState({
+                 mode: 'read'
+               })
+             }.bind(this)
+        }></TOC>
         <Content title={_title} desc={_desc}></Content>
       </div>
     );

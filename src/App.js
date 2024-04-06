@@ -22,8 +22,6 @@ class App extends Component {
     }
   }
   render() {
-    console.log('App render');
-
     let _title, _desc = null;
     if (this.state.mode === 'welcome') {
       _title = this.state.welcome.title;
@@ -32,7 +30,6 @@ class App extends Component {
       _title = this.state.contents[0].title;
       _desc = this.state.contents[0].desc;
     }
-    console.log('render', this);
 
     return (
       <div className="App">
@@ -42,9 +39,12 @@ class App extends Component {
         {/*></Subject>*/}
         <header>
           <h1><a href="/" onClick={function(e){
-            console.log('event in',this);
             e.preventDefault(); // a태그의 기본적인 동작방법을 중지 시킴
+
+            // "this.state.mode = 'welcome';" 이런식으로 바꾸면 몰래 바꾼 느낌
             // this.state.mode = 'welcome';
+
+            // 컴포넌트가 생성된 이후에는 setState 함수에 변경하고 싶은 값 주면 됨.
             this.setState({
               mode: 'welcome'
             })

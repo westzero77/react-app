@@ -43,7 +43,11 @@ class App extends Component {
         <header>
           <h1><a href="/" onClick={function(e){
             e.preventDefault(); // a태그의 기본적인 동작방법을 중지 시킴
-          }}>{this.state.subject.title}</a></h1>
+            // this.state.mode = 'welcome';
+            this.setState({
+              mode: 'welcome'
+            })
+          }.bind(this)}>{this.state.subject.title}</a></h1>
           {this.state.subject.subTitle}
         </header>
         <TOC data={this.state.contents}></TOC>
